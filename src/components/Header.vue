@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-      <div class="row">
+      <div class="row nav">
           <div class="col-12">
               <Search @searchMovies ="list"/>
           </div>
@@ -10,6 +10,7 @@
 
 <script>
 import axios from 'axios';
+import Search from '@/components/Search.vue';
 export default {
     name:'Header',
     components : {
@@ -49,10 +50,11 @@ export default {
 
 <style lang="scss" scoped>
 
-    .row
+    .nav
     {
-        background-color: red;
-        height: 400px;
+        // background-color: blue;
+        height: 90px;
+        background-color: #020202;
     }
 
 
