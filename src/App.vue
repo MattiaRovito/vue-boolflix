@@ -2,7 +2,7 @@
   <div id="app">
     <Header @ricerca="ricercaFilm"/>
 
-    <Main :films="moviesArray"/>
+    <Main :films="moviesArray" :campoRicerca="searchText"/>
   </div>
 </template>
 
@@ -22,11 +22,13 @@ export default {
       apiURL: 'https://api.themoviedb.org/3/search/movie', 
       key: 'bfcf208327aefb75b3731be9f3c9c913',
       language: 'it-IT',
-      moviesArray : []
+      moviesArray : [],
+      searchText : ''
     }
   }, 
   methods: {
     ricercaFilm(text){
+      this.searchText = text;
       axios
         .get(this.apiURL, {
           params : {
@@ -38,7 +40,7 @@ export default {
         .then(response=>{
           this.moviesArray = response.data.results;
         })
-      //  console.log(text);
+      
     }
   }
 }

@@ -2,7 +2,7 @@
   <main>
       <div class="container">
           <div class="search">
-              <h2>Hai cercato </h2>
+              <h2>Hai cercato: {{campoRicerca}} </h2>
               <div class="cards">
                   <Card v-for="film in films" :key="film.id" :info="film"/>
               </div>
@@ -21,6 +21,7 @@ export default {
     },
     props : {
         films: Array,
+        campoRicerca: String,
     }
 }
 </script>
