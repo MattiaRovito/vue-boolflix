@@ -29,11 +29,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+header
+{
+    background-color: #202020;
     .nav
     {
         height: 90px;
-        background-color: #020202;
+        
 
         .red
         {
@@ -57,7 +59,7 @@ export default {
         
         color:white
     }
-
+}
 
 
 </style>

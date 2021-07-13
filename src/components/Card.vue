@@ -24,6 +24,7 @@ export default {
 <style lang="scss" scoped>
 
   ul{
+    margin-top: 10px;
     li{
       list-style: none;
     }

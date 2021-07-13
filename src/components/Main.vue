@@ -1,9 +1,9 @@
 <template>
   <main>
       <div class="container">
-          <div class="search">
-              <h2>Hai cercato: {{capitalize(campoRicerca)}} </h2>
-              <div class="cards">
+          <div class="search p-2">
+              <h3><strong>Hai cercato:</strong> {{capitalize(campoRicerca)}} </h3>
+              <div class="cards mt-2">
                   <Card  v-for="film in films" :key="film.id" :info="film"/>
               </div>
           </div>
@@ -34,5 +34,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+main
+{
+        
+    background-color: black;
+    overflow-y: scroll;
+    
+    h3
+    {
+        color: white;
+    }
+
+    .container
+    {
+        height: calc(100vh - 90px);
+        
+        
+    }
+}
+
 
 </style>
