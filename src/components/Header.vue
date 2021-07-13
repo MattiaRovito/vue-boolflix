@@ -1,63 +1,29 @@
 <template>
-  <section class="container">
-      <div class="row nav">
-          <div class="col-12">
-              <Search @searchMovies ="searchFilm"/>
-          </div>
-      </div>
-  </section>
+    <header>
+        <div class="container">
+            <div class="logo">Boolflix</div>
+
+            <input 
+            type="text" 
+            placeholder="Cerca i tuoi film e serie tv"
+            v-model="search"
+            @keyup="$emit('ricerca', search)">
+            <!-- al posto del keyup si può usare il bottone con il @click -->
+        </div>
+
+    </header>
+
 </template>
 
 <script>
-import axios from 'axios';
-import Search from '@/components/Search.vue';
+
 export default {
-    name:'Header',
-    components : {
-        Search
-    },
-    data(){
+    name:'Header',   
+    data () {
         return {
-            apiURL : 'https://api.themoviedb.org/3/search/movie',
-            searchList: '',
-            searchQuery : '',
-            searchTitle : '',
-            searchLanguage : ''
-
-        }
-    },
-    created (){
-        this.getList();
-    },
-    computed:{
-
-    },
-    methods:{
-        getList(){
-            axios
-                .get(this.apiURL, {
-                    params: {
-                        original_title : this.searchQuery,
-                        title : this.searchTitle,
-                        original_language : this.searchLanguage,
-                    }
-                })
-                .then(res =>{
-                    console.log(res.data);
-                    this.searchList = res.data.response;
-                    console.log(this.searchList);
-                    
-                })
-                .catch(error => {
-                    console.log('Errore: ', error);
-                });
-        },
-        searchFilm(searchInput){
-            this.searchList = searchInput;
-            // console.log('ciao', this.searchList);
+            search :''
         }
     }
-
 }
 </script>
 
@@ -65,7 +31,6 @@ export default {
 
     .nav
     {
-        // background-color: blue;
         height: 90px;
         background-color: #020202;
     }
