@@ -4,17 +4,7 @@
           <div class="search">
               <h2>Hai cercato: {{capitalize(campoRicerca)}} </h2>
               <div class="cards">
-                  <!-- <Card  v-for="film in films" :key="film.id" :info="film"/> -->
-                    <div class="cards">
-                        <div v-for="(film, index) in films" :key="index">
-                            <ul>
-                                <li>Titolo: {{film.title}}</li>
-                                <li>Titolo originale: {{film.original_title}}</li>
-                                <li>Lingua: {{film.original_language}}</li>
-                                <li>Voto: {{film.vote_average}}</li>
-                            </ul>
-                        </div>
-                    </div>  
+                  <Card  v-for="film in films" :key="film.id" :info="film"/>
               </div>
           </div>
       </div>
@@ -26,7 +16,7 @@ import Card from '@/components/Card.vue';
 
 export default {
     name: 'Main',
-    component : {
+    components : {
         Card,
     },
     props : {
