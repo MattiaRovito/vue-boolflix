@@ -6,7 +6,7 @@
         <!-- oppure si può usare l'or || -->
         <ul class="p-2 mx-2">
           <li>
-              <img :src="posterImg" :alt="info.title">
+              <img :src="posterImg" :alt="info.title" class="poster">
           </li>
           <li>
             <span class="fw-bold">Titolo</span>: 
@@ -23,7 +23,8 @@
             
             <!-- grazie al require riesco ad importare le immagini. Senza, il sistema non riesce a definire il percorso dove andare a prendere le determinate immagini. -->
             <img :src="require(`../assets/img/${info.original_language}.png`)" 
-                  :alt="info.original_language">
+                  :alt="info.original_language"
+                  class="bandiere">
           </li>
 
           <li v-else>
@@ -31,7 +32,8 @@
             {{info.original_language}}
             
             <img :src="require(`../assets/img/${info.original_language}.png`)" 
-                  :alt="info.original_language">
+                  :alt="info.original_language"
+                  class="bandiere">
           </li>
           
           <li>
@@ -48,19 +50,22 @@
 <script>
 export default {
     name : "Card",
-    props: [
-      info = String,
-      img = String
-      ],
+    props: {
+      info : String,
+      img : String
+      },
     data () {
       return {
         bandiere : ["en", "it", "es", "fr"],  
         posterImg: '',
       } 
     },
+     created (){
+      this.addPoster()
+    },
     methods : {
       addPoster(){
-       this.posterImg = "https://image.tmdb.org/t/p/" + "w342" + this.img;
+       this.posterImg = "https://image.tmdb.org/t/p/" + "w500" + this.img;
       }
     }
 }
@@ -73,10 +78,10 @@ export default {
     li{
       list-style: none;
 
-      img {
+    }
+  }
+   .bandiere {
         width: 2%;
         margin-bottom: 2px;
       }
-    }
-  }
 </style>
