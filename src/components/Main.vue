@@ -5,6 +5,11 @@
               <h3><strong>Hai cercato:</strong> {{capitalize(campoRicerca)}} </h3>
               <div class="cards mt-2">
                   <Card  v-for="film in films" :key="film.id" :info="film"/>
+                  <!-- per i telefilm possiamo usare sempre :info -->
+              </div>
+              <div class="cards mt-2">
+                  <Card  v-for="movie in movies" :key="movie.id" :info="movie"/>
+                 
               </div>
           </div>
       </div>
@@ -21,6 +26,7 @@ export default {
     },
     props : {
         films: Array,
+        movies: Array,
         campoRicerca: String,
     },
     methods :{
