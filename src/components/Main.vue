@@ -4,7 +4,7 @@
           <div class="search p-2">
               <h3><strong>Hai cercato:</strong> {{capitalize(campoRicerca)}} </h3>
               <div class="cards mt-2">
-                  <Card  v-for="film in films" :key="film.id" :info="film"/>
+                  <Card  v-for="film in films" :key="film.id" :info="film" :img="film.poster_path"/>
                   <!-- per i telefilm possiamo usare sempre :info -->
               </div>
               <div class="cards mt-2">

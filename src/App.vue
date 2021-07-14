@@ -1,6 +1,6 @@
-// Note Personali
+//! Note Personali
 
-// All'interno dell'App.vue sono state create due components (Header e Main). Attraverso la funzione ricercaFilm() sono state effettuate due chiamate axios per i film e i telefilm (nei data() sono stati inseriti gli URL con i rispettivi array da popolare). Nella header sono stati creati gli input e i bottoni che, attraverso l'emit, andranno ad effettuare la ricerca mediante gli URL presenti nell'APP.vue. l'emit è stato quindi collegato nell'App.vue (@ricerca="ricercaFilm"). Per quanto riguarda il Main, dopo aver effettuato la ricerca, i due array (moviesArray e seriesArray) popolati, sono stati inviati tramite un props nella component Main. All'interno della component è stata creata un'altra component (Card) che, mediante sempre un props, ha permesso di stampare a schermo gli elementi voluti.
+//? All'interno dell'App.vue sono state create due components (Header e Main). Attraverso la funzione ricercaFilm() sono state effettuate due chiamate axios per i film e i telefilm (nei data() sono stati inseriti gli URL con i rispettivi array da popolare). Nella header sono stati creati gli input e i bottoni che, attraverso l'emit, andranno ad effettuare la ricerca mediante gli URL presenti nell'APP.vue. l'emit è stato quindi collegato nell'App.vue (@ricerca="ricercaFilm"). Per quanto riguarda il Main, dopo aver effettuato la ricerca, i due array (moviesArray e seriesArray) popolati, sono stati inviati tramite un props nella component Main. All'interno della component è stata creata un'altra component (Card) che, mediante sempre un props, ha permesso di stampare a schermo gli elementi voluti.
 
 
 <template>
@@ -26,6 +26,7 @@ export default {
     return {
       apiURL: 'https://api.themoviedb.org/3/search/movie', 
       apiTvURL: 'https://api.themoviedb.org/3/search/tv',
+      copertinaURL : 'https://image.tmdb.org/t/p/w500/',
       key: 'bfcf208327aefb75b3731be9f3c9c913',
       language: 'it-IT',
       moviesArray : [],
@@ -114,3 +115,4 @@ export default {
 
 //TODO Milestone 3:
 //* In questa milestone come prima cosa aggiungiamo la copertina del film o della serie al nostro elenco. Ci viene passata dall’API solo la parte finale dell’URL, questo perché poi potremo generare da quella porzione di URL tante dimensioni diverse. Dovremo prendere quindi l’URL base delle immagini di TMDB: https://image.tmdb.org/t/p/ per poi aggiungere la dimensione che vogliamo generare (troviamo tutte le dimensioni possibili a questo link: https://www.themoviedb.org/talk/53c11d4ec3a3684cf4006400) per poi aggiungere la parte finale dell’URL passata dall’API. Esempio di URL: https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png
+//* Trasformiamo poi il voto da 1 a 10 decimale in un numero intero da 1 a 5, così da permetterci di stampare a schermo un numero di stelle piene che vanno da 1 a 5, lasciando le restanti vuote (troviamo le icone in FontAwesome). Arrotondiamo sempre per eccesso all’unità successiva, non gestiamo icone mezze piene.

@@ -6,6 +6,9 @@
         <!-- oppure si può usare l'or || -->
         <ul class="p-2 mx-2">
           <li>
+              <img :src="posterImg" :alt="info.title">
+          </li>
+          <li>
             <span class="fw-bold">Titolo</span>: 
             {{info.title == null ? info.name : info.title}}
           </li>
@@ -17,7 +20,7 @@
           
           <li v-if="bandiere.includes(info.original_language)">
             <span class="fw-bold">Lingua</span>: 
-            <!-- PER LE BANDIERE, SALVARE 2-3 BANDIERE (STESSA ESTENSIONE. RINOMINARLE it.png en.png etc) -->
+            
             <!-- grazie al require riesco ad importare le immagini. Senza, il sistema non riesce a definire il percorso dove andare a prendere le determinate immagini. -->
             <img :src="require(`../assets/img/${info.original_language}.png`)" 
                   :alt="info.original_language">
@@ -45,11 +48,20 @@
 <script>
 export default {
     name : "Card",
-    props: ["info"],
+    props: [
+      info = String,
+      img = String
+      ],
     data () {
       return {
-        bandiere : ["en", "it", "es", "fr"]
+        bandiere : ["en", "it", "es", "fr"],  
+        posterImg: '',
       } 
+    },
+    methods : {
+      addPoster(){
+       this.posterImg = "https://image.tmdb.org/t/p/" + "w342" + this.img;
+      }
     }
 }
 </script>
