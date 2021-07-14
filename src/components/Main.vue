@@ -8,7 +8,7 @@
                   <!-- per i telefilm possiamo usare sempre :info -->
               </div>
               <div class="cards mt-2">
-                  <Card  v-for="movie in movies" :key="movie.id" :info="movie"/>
+                  <Card  v-for="movie in movies" :key="movie.id" :info="movie" :img="movie.poster_path"/>
                  
               </div>
           </div>

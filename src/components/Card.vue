@@ -8,6 +8,9 @@
           <li>
               <img :src="posterImg" :alt="info.title" class="poster">
           </li>
+
+
+
           <li>
             <span class="fw-bold">Titolo</span>: 
             {{info.title == null ? info.name : info.title}}
@@ -28,6 +31,7 @@
           </li>
 
           <li v-else>
+
             <span class="fw-bold">Lingua</span>: 
             {{info.original_language}}
             
@@ -60,12 +64,12 @@ export default {
         posterImg: '',
       } 
     },
-     created (){
+    created (){
       this.addPoster()
     },
     methods : {
       addPoster(){
-       this.posterImg = "https://image.tmdb.org/t/p/" + "w500" + this.img;
+       this.posterImg = "https://image.tmdb.org/t/p/" + "w342" + this.img;
       }
     }
 }
