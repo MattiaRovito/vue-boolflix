@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div>
     <div>
       <div>
         <!-- == null ovvero se non c'è stampi info.name, altrimenti stampi info.title -->
@@ -39,11 +39,20 @@
                   :alt="info.original_language"
                   class="bandiere">
           </li>
+
+
+          <ul class="d-flex justify-content-center">
+                <span class="fw-bold me-2">Voto:</span> 
+                <li v-for="(star, i) in stars" :key="i" class="star" >
+                    <i class="fas fa-star"></i>
+                </li> 
+          </ul>
+         
           
-          <li>
-            <span class="fw-bold">Voto</span>: 
-            {{info.vote_average}}
-          </li>
+          
+          
+          
+         
         </ul>
       </div>
     </div>
@@ -56,20 +65,30 @@ export default {
     name : "Card",
     props: {
       info : String,
-      img : String
+      img : String,
+      vote: Number,
       },
     data () {
       return {
         bandiere : ["en", "it", "es", "fr"],  
         posterImg: '',
+        stars : 0,
       } 
     },
     created (){
-      this.addPoster()
+      this.addPoster(),
+      this.parsVote()
     },
     methods : {
       addPoster(){
        this.posterImg = "https://image.tmdb.org/t/p/" + "w342" + this.img;
+
+        
+      },
+      parsVote(){
+        if (parseInt(this.vote) != 0){
+        this.stars = Math.round(parseInt(this.vote) / 2);
+      } else {this.stars = null}
       }
     }
 }
@@ -84,8 +103,16 @@ export default {
 
     }
   }
-   .bandiere {
-        width: 2%;
+  .bandiere {
+        width: 7%;
         margin-bottom: 2px;
-      }
+        
+  }
+  .poster {
+    border: 1px solid white;
+  }
+  .star {
+    color:yellow;
+
+  }
 </style>

@@ -2,14 +2,18 @@
   <main>
       <div class="container">
           <div class="search p-2">
-                <h3><strong>Hai cercato:</strong> {{capitalize(campoRicerca)}} </h3>
+                <h3 class="px-3"><strong>Hai cercato:</strong> {{capitalize(campoRicerca)}} </h3>
             
-                <div class="cards mt-2">
-                    <Card  v-for="film in films" :key="film.id" :info="film" :img="film.poster_path"/>
-                    <!-- per i telefilm possiamo usare sempre :info -->
+                <div class="d-flex flex-wrap">
+                    
+                        <Card  v-for="film in films" :key="film.id" :info="film" :img="film.poster_path" :vote="film.vote_average" class="col-4"/>
+                        <!-- per i telefilm possiamo usare sempre :info -->         
+                    
+                    
                 </div>
-                <div class="cards mt-2">
-                    <Card  v-for="movie in movies" :key="movie.id" :info="movie" :img="movie.poster_path"/>
+                <div class="d-flex flex-wrap">
+                    
+                    <Card  v-for="movie in movies" :key="movie.id" :info="movie" :img="movie.poster_path" :vote="movie.vote_average" class="col-4"/>
                  
                 </div>
           </div>
@@ -46,11 +50,9 @@ main
         
     background-color: black;
     overflow-y: scroll;
+    color: white;
     
-    h3
-    {
-        color: white;
-    }
+   
 
     .container
     {

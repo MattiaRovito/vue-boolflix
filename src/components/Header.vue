@@ -28,8 +28,8 @@
 
             <button 
             type="submit" 
-            class="btn btn-warning mx-1 mt-3" 
-            @click.prevent="resetSearch">Reset
+            class="btn btn-danger mx-1 mt-3" 
+            @click.prevent="resetSearch">Cancella
             </button>       
                
      
