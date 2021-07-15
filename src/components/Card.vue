@@ -5,10 +5,13 @@
         <!-- == null ovvero se non c'è stampi info.name, altrimenti stampi info.title -->
         <!-- oppure si può usare l'or || -->
         <ul class="p-2 mx-2">
-          <li>
-              <img :src="posterImg" :alt="info.title" class="poster">
+          <li class="poster-hover">
+                <img :src="posterImg" :alt="info.title" class="poster">
+                <div class="overview my-3">
+                  {{info.overview}}
+                </div>             
           </li>
-
+         
 
 
           <li>
@@ -40,6 +43,8 @@
                   class="bandiere">
           </li>
 
+         
+
 
           <ul class="d-flex justify-content-center">
                 <span class="fw-bold me-2">Voto:</span> 
@@ -67,6 +72,7 @@ export default {
       info : String,
       img : String,
       vote: Number,
+      overview: String,
       },
     data () {
       return {
@@ -110,9 +116,28 @@ export default {
   }
   .poster {
     border: 1px solid white;
+    cursor: pointer;
   }
+
+  .overview {
+    display: none;
+  }
+
+  .poster-hover:hover .poster {
+    display: none;
+  }
+
+  .poster-hover:hover .overview{
+    display: block;
+    border: 1px solid red;
+    padding: 10px;
+    cursor: pointer;
+  }
+
   .star {
     color:yellow;
 
   }
+
+
 </style>

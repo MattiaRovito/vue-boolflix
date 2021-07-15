@@ -6,14 +6,14 @@
             
                 <div class="d-flex flex-wrap">
                     
-                        <Card  v-for="film in films" :key="film.id" :info="film" :img="film.poster_path" :vote="film.vote_average" class="col-4"/>
+                        <Card  v-for="film in films" :key="film.id" :info="film" :img="film.poster_path" :vote="film.vote_average" :overview="film_overview" class="col-4"/>
                         <!-- per i telefilm possiamo usare sempre :info -->         
                     
                     
                 </div>
                 <div class="d-flex flex-wrap">
                     
-                    <Card  v-for="movie in movies" :key="movie.id" :info="movie" :img="movie.poster_path" :vote="movie.vote_average" class="col-4"/>
+                    <Card  v-for="movie in movies" :key="movie.id" :info="movie" :img="movie.poster_path" :vote="movie.vote_average" :overview="movie_overview" class="col-4"/>
                  
                 </div>
           </div>
